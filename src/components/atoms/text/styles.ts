@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 interface SpanProps {
     'font-family': string,
-    'font-weight': string,
+    'font-weight': number,
     'font-size': number, 
     'font-color': string,
 }

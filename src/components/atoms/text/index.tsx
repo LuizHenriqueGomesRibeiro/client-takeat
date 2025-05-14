@@ -4,10 +4,22 @@ import { Span } from "./styles";
 export const TextList = {
     'delivery-subtitle': {
         'font-family': 'poppins',
-        'font-weight': 'medium',
+        'font-weight': 500,
         'font-size': 18,
         'font-color': themes.grey
-    }
+    },
+    'product-name': {
+        'font-family': 'Roboto',
+        'font-weight': 600,
+        'font-size': 16,
+        'font-color': themes.brown
+    },
+    'product-subname': {
+        'font-family': 'Roboto',
+        'font-weight': 400,
+        'font-size': 16,
+        'font-color': themes.brown
+    },
 } as const;
 
 interface TextProps {

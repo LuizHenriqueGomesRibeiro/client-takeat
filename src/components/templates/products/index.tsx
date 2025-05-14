@@ -1,4 +1,5 @@
 import { Asset, Button, SearchInput, Text } from "../../atoms";
+import { ProductCard } from "../../molecules";
 import { ProductsPageBody, ProductsPageHeader, ProductsPageSettings } from "./styles";
 
 const Products = () => {
@@ -21,6 +22,7 @@ const Products = () => {
                 <Asset name="settings" width={25} height={25}/>
             </Button>
         </ProductsPageSettings>
+        <ProductCard/>
     </ProductsPageBody>
 }
 
