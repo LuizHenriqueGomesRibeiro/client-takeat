@@ -3,9 +3,10 @@ import themes from "../../../themes";
 
 export const ProductsPageBody = styled.div`
     background-color: ${themes.background};
-    width: 100vw;
-    height: 100vh;
-`
+    padding: 10px 10px 40px 10px;
+    display: flex;
+    flex-direction: column;
+    `
 
 export const ProductsPageHeader = styled.div`
     display: flex;
@@ -15,9 +16,10 @@ export const ProductsPageHeader = styled.div`
         display: flex;
         flex-direction: column;
     }
-`
+    `
 
 export const ProductsPageSettings = styled.div`
+    margin: 20px 0 20px 0;
     display: flex;
     gap: 30px;
 `

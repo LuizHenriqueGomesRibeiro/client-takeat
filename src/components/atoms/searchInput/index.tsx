@@ -23,7 +23,7 @@ const SearchInput = () => {
                 '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
                     border: 'none',
                 },
-                backgroundColor: '#f5f5f5',
+                backgroundColor: 'white',
                 borderRadius: 4, 
                 paddingLeft: 1,
                 boxShadow: '0 0 15px rgba(0, 0, 0, 0.15)',
