@@ -1,20 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ProductsPage } from './pages';
 
-import styled from 'styled-components';
 import './App.css';
-
-const Poppins = styled.span`
-  font-family: 'poppins';
-`
-
-const Roboto = styled.span`
-  font-family: 'roboto';
-`
-
-const Inter = styled.span`
-  font-family: 'Inter';
-`
 
 function App() {
 

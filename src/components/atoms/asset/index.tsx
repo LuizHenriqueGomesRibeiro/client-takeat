@@ -1,9 +1,13 @@
 import settings from '../../../assets/settings-sliders.svg';
+import whitefoodgo from '../../../assets/white-foodgo.svg';
+import reduser from '../../../assets/red-user.svg';
+import back from '../../../assets/arrow-left.svg';
 import Foodgo from '../../../assets/Foodgo.svg';
 import search from '../../../assets/search.svg';
 import heart from '../../../assets/heart.svg';
-import star from '../../../assets/star.svg';
 import user from '../../../assets/user.svg';
+import star from '../../../assets/star.svg';
+import home from '../../../assets/home.svg';
 
 import { AssetProps } from './types';
 
@@ -13,7 +17,11 @@ export const imgList = {
     'settings': settings,
     'search': search,
     'heart': heart,
-    'star': star
+    'star': star,
+    'home': home,
+    'back': back,
+    'red-user': reduser,
+    'whitefoodgo': whitefoodgo,
 } as const;
 
 const Asset = ({ name, ...props }: AssetProps) => {

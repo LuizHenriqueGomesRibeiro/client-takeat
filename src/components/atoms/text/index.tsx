@@ -20,6 +20,30 @@ export const TextList = {
         'font-size': 16,
         'font-color': themes.brown
     },
+    'white-order-price': {
+        'font-family': 'Roboto',
+        'font-weight': 800,
+        'font-size': 18,
+        'font-color': themes.white
+    },
+    'red-order-price': {
+        'font-family': 'Roboto',
+        'font-weight': 800,
+        'font-size': 18,
+        'font-color': themes.red
+    },
+    'grey-order-price': {
+        'font-family': 'Roboto',
+        'font-weight': 800,
+        'font-size': 18,
+        'font-color': themes.grey
+    },
+    'shopping-cart-text': {
+        'font-family': 'poppins',
+        'font-weight': 500,
+        'font-size': 24,
+        'font-color': themes.brown
+    }
 } as const;
 
 interface TextProps {

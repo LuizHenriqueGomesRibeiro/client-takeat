@@ -1,17 +1,19 @@
 import styled from "styled-components";
 
 interface ComponentProps {
-    width: number,
-    height: number,
+    width: string,
+    height: string,
     radius: number,
-    color: string
+    color: string,
+    border?: string
 }
 
 export const Component = styled.div<ComponentProps>`
-    width: ${props => `${props.width}px`};
-    height: ${props => `${props.height}px`};
+    width: ${props => props.width};
+    height: ${props => props.height};
     border-radius: ${props => `${props.radius}px`};
     background-color: ${props => props.color};
+    border: ${props => props.border};
     display: flex;
     align-items: center;
     justify-content: center;

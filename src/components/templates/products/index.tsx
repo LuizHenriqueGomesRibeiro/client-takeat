@@ -1,9 +1,10 @@
 import { ProductsPageBody, ProductsPageHeader, ProductsPageSettings } from "./styles";
 import { Asset, Button, SearchInput, Text } from "../../atoms";
-import { ProductsList } from "../../organisms";
 import { HomeBottomBar } from "../../molecules";
+import { ProductsList } from "../../organisms";
+import { ProductsTemplateProps } from "./types";
 
-const Products = () => <>
+const Products = ({ ...props }: ProductsTemplateProps) => <>
     <ProductsPageBody>
         <ProductsPageHeader>
             <div>
@@ -26,7 +27,7 @@ const Products = () => <>
         </ProductsPageSettings>
         <ProductsList/>
     </ProductsPageBody>
-    <HomeBottomBar/>
+    <HomeBottomBar {...props}/>
 </>
 
 export default Products;
