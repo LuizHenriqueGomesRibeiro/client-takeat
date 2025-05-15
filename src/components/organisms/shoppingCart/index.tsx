@@ -1,7 +1,8 @@
-import { SwipeableDrawer, Button as Box } from '@mui/material';
+import { SwipeableDrawer, Button as Box, TextField } from '@mui/material';
 import { ShoppingCartProps } from "./types";
 import { Component } from "./styles";
 import { Asset, Button, Text } from '../../atoms';
+import { ProductCartCard } from '../../molecules';
 
 const Index = ({ isDrawerOpen, onOpenDrawer, onCloseDrawer }: ShoppingCartProps) => <SwipeableDrawer
     anchor="bottom"
@@ -23,11 +24,13 @@ const Index = ({ isDrawerOpen, onOpenDrawer, onCloseDrawer }: ShoppingCartProps)
             </div>
         </header>
         <main>
-
+            <ProductCartCard/>
+            <ProductCartCard/>
+            <ProductCartCard/>
         </main>
         <footer>
             <div>
-                <Text name='grey-order-price'>Total</Text>
+                <Text name='grey-order-price'>Total:</Text>
                 <Text name='grey-order-price'>R$ 20,50</Text>
             </div>
             <section>

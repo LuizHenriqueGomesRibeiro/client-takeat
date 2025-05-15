@@ -24,7 +24,11 @@ export const Component = styled.div`
 
     > main {
         border-bottom: 1px solid ${themes.grey};
-        height: calc(100vh - 175px);
+        height: calc(100vh - 230px);
+        display: flex;
+        flex-direction: column;
+        padding: 24px;
+        gap: 18px;
     }
 
     > footer {
