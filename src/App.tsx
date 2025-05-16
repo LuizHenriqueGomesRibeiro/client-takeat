@@ -10,6 +10,7 @@ function App() {
       <Route path={pagination.products} element={<ProductsPage/>} />
       <Route path={pagination.order} element={<OrderPage/>} />
       <Route path={pagination.profile} element={<UserPage/>} />
+      <Route path={pagination.login} element={<UserPage/>} />
       <Route path="*" element={<>Não encontrado</>} />
     </Routes>
   </BrowserRouter>
