@@ -18,8 +18,8 @@ export const Component = styled.div`
         max-width: 500px;
         max-height: 600px;
         background-color: rebeccapurple;
-        display: flex;
         flex-direction: column;
+        display: flex;
         
 
     }

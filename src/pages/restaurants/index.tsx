@@ -1,10 +1,10 @@
-import { LoginTemplate } from "../../components/templates";
+import { RestaurantsTemplate } from "../../components/templates";
 
 
 const Index = () => {
 
 
-    return <LoginTemplate/>
+    return <RestaurantsTemplate/>
 }
 
 export default Index;

@@ -6,6 +6,7 @@ const pagination = {
     order: '/order',
     profile: '/usuario',
     login: '/login',
+    restaurants: '/restaurantes',
 }
 
 export default pagination;
