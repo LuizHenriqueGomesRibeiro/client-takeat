@@ -24,9 +24,7 @@ const Index = ({ isDrawerOpen, onOpenDrawer, onCloseDrawer }: ShoppingCartProps)
             </div>
         </header>
         <main>
-            <ProductCartCard/>
-            <ProductCartCard/>
-            <ProductCartCard/>
+            {[1,2,3,4, 2,3, 4].map(() => <ProductCartCard/>)}
         </main>
         <footer>
             <div>

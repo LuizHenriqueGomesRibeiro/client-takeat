@@ -29,6 +29,20 @@ export const Component = styled.div`
         flex-direction: column;
         padding: 24px;
         gap: 18px;
+        overflow-y: auto;
+    }
+
+    > main::-webkit-scrollbar {
+        width: 4px;
+    }
+    
+    > main::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    
+    > main::-webkit-scrollbar-thumb {
+        background-color: ${themes.red};
+        border-radius: 4px;
     }
 
     > footer {

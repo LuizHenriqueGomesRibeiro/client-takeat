@@ -1,6 +1,6 @@
-import { Asset, Button, Text } from "../../atoms";
 import { ShoppingCart } from "../../organisms";
 import { HomeBottomBarProps } from "./types";
+import { Asset, Text } from "../../atoms";
 import { Component } from "./styles";
 
 const Index = ({ ...props }: HomeBottomBarProps) => <>
