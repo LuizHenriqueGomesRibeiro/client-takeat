@@ -2,25 +2,76 @@ import styled from "styled-components";
 import themes from "../../../themes";
 
 export const Component = styled.div`
-    width: 100vw;
-    height: 100vh;
     background: linear-gradient(to top, ${themes.red}, ${themes["clean-red"]});
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    height: 100%;
+    gap: 20px;
     
-    > img {
-        
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+
+    background-size: cover, contain;
+    background-repeat: no-repeat, no-repeat;
+    background-position: top, bottom right;
+    
+    > * {
+        position: relative;
+        z-index: 1;
+    }
+    
+    > div::-webkit-scrollbar {
+        width: 4px;
+    }
+    
+    > div::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    
+    > div::-webkit-scrollbar-thumb {
+        background-color: ${themes.white};
+        border-radius: 4px;
     }
 
     > div {
-        max-width: 500px;
-        max-height: 600px;
-        background-color: rebeccapurple;
         flex-direction: column;
+        overflow-y: auto;
         display: flex;
         
+        padding: 10px 4px 10px 10px;
+        max-height: 70%;
+        gap: 10px;
 
+        > div {
+            > section {
+                display: flex;
+                flex-direction: column;
+                background-color: ${themes.white};
+                border-radius: 20px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+                padding: 16px 12px;
+                min-width: 400px;
+                gap: 10px;
+    
+                > div {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-end;
+                    
+                    > span {
+                    }
+                }
+
+                > div {
+                    display: flex;
+                    justify-content: space-between;
+                }
+    
+                > section {
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+        }
     }
 `

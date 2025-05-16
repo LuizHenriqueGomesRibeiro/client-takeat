@@ -4,6 +4,7 @@ import brownuser from '../../../assets/user-brown.svg';
 import greyuser from '../../../assets/user-grey.svg';
 import reduser from '../../../assets/red-user.svg';
 import back from '../../../assets/arrow-left.svg';
+import burguer from '../../../assets/burger.svg';
 import Foodgo from '../../../assets/Foodgo.svg';
 import search from '../../../assets/search.svg';
 import heart from '../../../assets/heart.svg';
@@ -26,6 +27,7 @@ export const imgList = {
     'whitefoodgo': whitefoodgo,
     'greyuser': greyuser,
     'brownuser': brownuser,
+    'burguer': burguer
 } as const;
 
 const Asset = ({ name, ...props }: AssetProps) => {

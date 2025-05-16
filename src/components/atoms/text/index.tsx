@@ -20,6 +20,12 @@ export const TextList = {
         'font-size': 16,
         'font-color': themes.brown
     },
+    'small-product-subname': {
+        'font-family': 'Roboto',
+        'font-weight': 400,
+        'font-size': 14,
+        'font-color': themes.brown
+    },
     'white-order-price': {
         'font-family': 'Roboto',
         'font-weight': 800,
