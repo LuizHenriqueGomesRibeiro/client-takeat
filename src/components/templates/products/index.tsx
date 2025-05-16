@@ -1,8 +1,8 @@
 import { ProductsPageBody, ProductsPageHeader, ProductsPageSettings } from "./styles";
 import { Asset, Button, SearchInput, Text } from "../../atoms";
+import { ProductsTemplateProps } from "./types";
 import { HomeBottomBar } from "../../molecules";
 import { ProductsList } from "../../organisms";
-import { ProductsTemplateProps } from "./types";
 
 const Products = ({ ...props }: ProductsTemplateProps) => <>
     <ProductsPageBody>

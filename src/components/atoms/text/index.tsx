@@ -43,7 +43,31 @@ export const TextList = {
         'font-weight': 500,
         'font-size': 24,
         'font-color': themes.brown
-    }
+    },
+    'order-summary': {
+        'font-family': 'poppins',
+        'font-weight': 500,
+        'font-size': 20,
+        'font-color': themes.brown
+    },
+    'order-summary-info': {
+        'font-family': 'Roboto',
+        'font-weight': 400,
+        'font-size': 18,
+        'font-color': themes.grey
+    },
+    'order-summary-total': {
+        'font-family': 'Roboto',
+        'font-weight': 700,
+        'font-size': 18,
+        'font-color': themes.brown
+    },
+    'edit-user-info': {
+        'font-family': 'Roboto',
+        'font-weight': 500,
+        'font-size': 14,
+        'font-color': themes.brown
+    },
 } as const;
 
 interface TextProps {

@@ -1,10 +1,10 @@
-import { SwipeableDrawer, Button as Box, TextField } from '@mui/material';
+import { SwipeableDrawer } from '@mui/material';
 import { ShoppingCartProps } from "./types";
 import { Component } from "./styles";
 import { Asset, Button, Text } from '../../atoms';
 import { ProductCartCard } from '../../molecules';
 
-const Index = ({ isDrawerOpen, onOpenDrawer, onCloseDrawer }: ShoppingCartProps) => <SwipeableDrawer
+const Index = ({ isDrawerOpen, onOpenDrawer, onCloseDrawer, onRedirectOrder }: ShoppingCartProps) => <SwipeableDrawer
     anchor="bottom"
     open={isDrawerOpen}
     onClose={onCloseDrawer}
@@ -33,10 +33,10 @@ const Index = ({ isDrawerOpen, onOpenDrawer, onCloseDrawer }: ShoppingCartProps)
             </div>
             <section>
                 <Button name='cancel-order-button'>
-                    <Text name='red-order-price'>Cancelar</Text>
+                    <Text name='red-order-price'>cancelar</Text>
                 </Button>
-                <Button name='continue-order-button'>
-                    <Text name='white-order-price'>Continuar pedido</Text>
+                <Button name='continue-order-button' onClick={onRedirectOrder}>
+                    <Text name='white-order-price'>CONTINUAR PEDIDO</Text>
                 </Button>
             </section>
         </footer>

@@ -38,7 +38,7 @@ const NumberInput = React.forwardRef(function CustomNumberInput(
 });
 
 export default function QuantityInput() {
-  return <NumberInput aria-label="Quantity Input" min={1} max={99} />;
+  return <NumberInput aria-label="Quantity Input" min={1} max={10} />;
 }
 
 const StyledInputRoot = styled('div')(

@@ -1,11 +1,11 @@
 import { ShoppingCart } from "../../organisms";
 import { HomeBottomBarProps } from "./types";
-import { Asset, Text } from "../../atoms";
+import { Asset, Button, Text } from "../../atoms";
 import { Component } from "./styles";
 
 const Index = ({ ...props }: HomeBottomBarProps) => <>
     <Component>
-        <body onClick={props.onOpenDrawer}>
+        <Button name="numb-button" onClick={props.onOpenDrawer}>
             <div>
                 <Asset name="whitefoodgo" height={24}/>
                 <Text name="white-order-price">Fazer pedido</Text>
@@ -13,7 +13,7 @@ const Index = ({ ...props }: HomeBottomBarProps) => <>
             <div>
                 <Text name="white-order-price">R$ 16,90</Text>
             </div>
-        </body>
+        </Button>
         <footer>
             <div>
                 <Asset name="back" width={24} height={24} />

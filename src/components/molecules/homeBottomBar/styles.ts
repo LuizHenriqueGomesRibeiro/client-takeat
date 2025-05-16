@@ -8,7 +8,7 @@ export const Component = styled.div`
     bottom: 0;
     left: 0;
     
-    > body {
+    > div {
         background-color: ${themes.red};
         float: 11;
         display: flex;
@@ -16,7 +16,6 @@ export const Component = styled.div`
         align-items: center;
         padding: 0 20px;
         height: 50px;
-        cursor: pointer;
         
         > div:first-child {
             margin-right: auto;
@@ -38,7 +37,7 @@ export const Component = styled.div`
     }
     
     > footer {
-        background-color: ${themes["ice-white"]};
+        background-color: ${themes.white};
         height: 70px;
         display: flex;
         justify-content: center;

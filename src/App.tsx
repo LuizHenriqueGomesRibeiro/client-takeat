@@ -1,15 +1,15 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { ProductsPage } from './pages';
-
+import { OrderPage, ProductsPage, UserPage } from './pages';
+import pagination from './core/pagination';
 import './App.css';
 
 function App() {
 
   return <BrowserRouter>
     <Routes>
-      <Route path="/products" element={<ProductsPage/>} />
-      <Route path="/orders" element={<>sobre</>} />
-      <Route path="/login" element={<>contato</>} />
+      <Route path={pagination.products} element={<ProductsPage/>} />
+      <Route path={pagination.order} element={<OrderPage/>} />
+      <Route path={pagination.profile} element={<UserPage/>} />
       <Route path="*" element={<>Não encontrado</>} />
     </Routes>
   </BrowserRouter>

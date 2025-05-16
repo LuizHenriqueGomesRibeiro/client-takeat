@@ -7,7 +7,6 @@ export const Component = styled.div`
     background-color: ${themes.white};
     padding: 15px 11px 14px 11px;
     width: 185px;
-    height: 225px;
 
     > main {
         display: flex;

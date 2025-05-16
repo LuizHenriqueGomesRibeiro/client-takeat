@@ -1,3 +1,4 @@
+import { ButtonHTMLAttributes } from "react";
 import themes from "../../../themes";
 import { Component } from "./styles";
 
@@ -21,14 +22,26 @@ export const ButtonsList = {
         radius: 15, 
         color: themes.red
     },
+    'numb-button': {
+        width: 'auto',
+        height: 'auto',
+        radius: 0, 
+        color: 'transparent'
+    },
+    'product-card-button': {
+        width: 'auto',
+        height: 'auto',
+        radius: 20, 
+        color: 'transparent'
+    }
 } as const;
 
-interface ButtonProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     name: keyof typeof ButtonsList,
     children: React.ReactNode,
 }
 
-const Button = ({ name, children }: ButtonProps) => {
+const Button = ({ name, children, ...props }: ButtonProps) => {
 
 
     return <Component
@@ -39,6 +52,7 @@ const Button = ({ name, children }: ButtonProps) => {
         //@ts-ignore
         border={ButtonsList[name].border}
         children={children}
+        {...props}
     />
 }
 

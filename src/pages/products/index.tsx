@@ -1,8 +1,16 @@
-import { useState } from "react";
 import { ProductsTemplate } from "../../components/templates";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-const Products = () => {
+import pagination from "../../core/pagination";
+
+const ProductsPage = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
+    const navigate = useNavigate();
+
+    const handleRedirectOrder = () => {
+        navigate(pagination.order);
+    }
 
     const handleOpenDrawer = () => {
         setIsDrawerOpen(true);
@@ -16,7 +24,8 @@ const Products = () => {
         isDrawerOpen={isDrawerOpen}
         onOpenDrawer={handleOpenDrawer}
         onCloseDrawer={handleCloseDrawer}
+        onRedirectOrder={handleRedirectOrder}
     />
 }
 
-export default Products;
+export default ProductsPage;

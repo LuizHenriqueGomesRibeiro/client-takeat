@@ -1,5 +1,7 @@
 import settings from '../../../assets/settings-sliders.svg';
 import whitefoodgo from '../../../assets/white-foodgo.svg';
+import brownuser from '../../../assets/user-brown.svg';
+import greyuser from '../../../assets/user-grey.svg';
 import reduser from '../../../assets/red-user.svg';
 import back from '../../../assets/arrow-left.svg';
 import Foodgo from '../../../assets/Foodgo.svg';
@@ -22,6 +24,8 @@ export const imgList = {
     'back': back,
     'red-user': reduser,
     'whitefoodgo': whitefoodgo,
+    'greyuser': greyuser,
+    'brownuser': brownuser,
 } as const;
 
 const Asset = ({ name, ...props }: AssetProps) => {

@@ -1,6 +1,6 @@
 const themes = {
     "red": "#EF2A39",
-    "brown": "#3CF2F",
+    "brown": "#3C2F2F",
     "black": "#000000",
     "grey": "#6A6A6A",
     "orange": "#FF9633",
