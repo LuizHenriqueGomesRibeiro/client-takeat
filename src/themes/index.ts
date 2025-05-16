@@ -1,5 +1,6 @@
 const themes = {
     "red": "#EF2A39",
+    "clean-red": "#FF939B",
     "brown": "#3C2F2F",
     "black": "#000000",
     "grey": "#6A6A6A",

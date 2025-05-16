@@ -3,7 +3,6 @@ import Asset from "../asset";
 
 const SearchInput = () => {
 
-
     return <TextField 
         variant="outlined" 
         fullWidth
