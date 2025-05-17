@@ -1,8 +1,7 @@
 import { RestaurantsTemplate } from "../../components/templates";
+import { RestaurantsPageProps } from "./types";
 
-
-const Index = () => {
-
+const Index = ({  }: RestaurantsPageProps) => {
 
     return <RestaurantsTemplate/>
 }
