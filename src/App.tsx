@@ -1,18 +1,20 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { OrderPage, ProductsPage, UserPage } from './pages';
-import { server } from './core/api-query-objects/factory';
+import { client } from './core/api-query-objects/factory';
+import { useEffect } from 'react';
 
 import pagination from './core/pagination';
 import './App.css';
 
 function App() {
-  const args = {
-    email: import.meta.env.VITE_EMAIL,
-    password: import.meta.env.VITE_PASSWORD
-  };
-  const data = server.login(args);
+  const { makeRequest } = client.login();
 
-  console.log(data);
+  useEffect(() => {
+    makeRequest({
+      email: import.meta.env.VITE_EMAIL,
+      password: import.meta.env.VITE_PASSWORD
+    });
+  }, []);
 
   return <BrowserRouter>
     <Routes>
