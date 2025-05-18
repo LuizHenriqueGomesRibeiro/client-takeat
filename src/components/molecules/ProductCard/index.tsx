@@ -1,18 +1,31 @@
-import { Asset, Button, Text } from "../../atoms";
+import { ProductDataProps } from "../../../core/api-query-objects/types";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Button, Text } from "../../atoms";
 import { Component } from "./styles";
 
-const Index = () => <Button name="product-card-button">
+import util from "../../../core/util";
+
+interface ComponentProps {
+    product: ProductDataProps
+}
+
+const Index = ({ 
+    product: { 
+        name,
+        value,
+        description,
+    } 
+}: ComponentProps) => <Button name="product-card-button">
     <Component>
         <main>
-            <Text name="product-name">XTudo</Text>
-            <Text name="product-subname">Melhor opção</Text>
+            <Text name="product-name">{name}</Text>
+            <Text name="product-subname">{description}</Text>
         </main>
         <footer>
             <div>
-                <Asset name="star" width={16} height={16}/>
-                <Text name="product-name">4.6</Text>
+                <Text name="product-name">{util.brl(value)}</Text>
             </div>
-            <Asset name="heart" width={24} height={24}/>
+            <ShoppingCartIcon />
         </footer>
     </Component>
 </Button>

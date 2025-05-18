@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { OrderPage, ProductsPage, UserPage } from './pages';
-import { ApiProvider, useApi } from './core/contexts/order';
+import { ApiProvider } from './core/contexts/api';
 
 import pagination from './core/pagination';
 import './App.css';

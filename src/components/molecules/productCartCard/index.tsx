@@ -1,13 +1,21 @@
+import { OrderArgProps } from "../../../core/api-query-objects/types";
+import util from "../../../core/util";
 import { NumberInput, Text } from "../../atoms";
 import { Component } from "./styles";
 
-const Index = () => <Component>
+interface ComponentProps {
+    order: OrderArgProps | undefined
+}
+
+const Index = ({ order }: ComponentProps) => <Component>
     <div>
-        <Text name="grey-order-price">Pizza grande na média</Text>
-        <Text name="grey-order-price">R$ 10,50</Text>
+        <Text name="grey-order-price">{order?.name}</Text>
+        <Text name="grey-order-price">{order && util.brl(order.value)}</Text>
     </div>
     <section>
-        <NumberInput/>
+        <NumberInput
+            amount={order?.amount}
+        />
     </section>
 </Component>
 

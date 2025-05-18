@@ -7,6 +7,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import { styled } from '@mui/system';
 import themes from '../../../themes';
+import { useApi } from '../../../core/contexts/api';
 
 const NumberInput = React.forwardRef(function CustomNumberInput(
   { value, ...props }: NumberInputProps,
@@ -37,8 +38,22 @@ const NumberInput = React.forwardRef(function CustomNumberInput(
   );
 });
 
-export default function QuantityInput() {
-  return <NumberInput aria-label="Quantity Input" min={1} max={10} />;
+interface ComponentProps {
+  amount: number | undefined,
+}
+
+export default function QuantityInput({ amount }: ComponentProps) {
+  const { handleChangeOrderAmount } = useApi();
+  
+  return <NumberInput  
+    aria-label="Quantity Input" min={1} max={10}
+    value={amount}
+    onChange={(_, value) => {
+      if (typeof value === 'number') {
+        handleChangeOrderAmount(value);
+      }
+    }}
+  />;
 }
 
 const StyledInputRoot = styled('div')(

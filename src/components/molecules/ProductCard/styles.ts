@@ -2,15 +2,20 @@ import styled from "styled-components";
 import themes from "../../../themes";
 
 export const Component = styled.div`
-    border-radius: 20px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-    background-color: ${themes.white};
-    padding: 15px 11px 14px 11px;
+    padding: 15px 11px 20px 11px;
+    border-radius: 20px;
     width: 185px;
 
+    background-color: ${themes.white};
+    justify-content: space-between;
+    flex-direction: column;
+    display: flex;
+    gap: 10px;
+
     > main {
-        display: flex;
         flex-direction: column;
+        display: flex;
     }
 
     > footer {

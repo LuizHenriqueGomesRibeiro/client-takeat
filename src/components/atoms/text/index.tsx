@@ -81,15 +81,12 @@ interface TextProps {
     children: React.ReactNode,
 }
 
-const Text = ({ name, children }: TextProps) => {
-
-    return <Span
-        font-family={TextList[name]["font-family"]}
-        font-weight={TextList[name]["font-weight"]}
-        font-size={TextList[name]["font-size"]}
-        font-color={TextList[name]["font-color"]}
-        children={children}
-    />
-}
+const Text = ({ name, children }: TextProps) => <Span
+    font-family={TextList[name]["font-family"]}
+    font-weight={TextList[name]["font-weight"]}
+    font-size={TextList[name]["font-size"]}
+    font-color={TextList[name]["font-color"]}
+    children={children}
+/>
 
 export default Text;

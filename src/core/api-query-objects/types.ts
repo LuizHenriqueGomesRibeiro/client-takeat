@@ -1,14 +1,16 @@
+export interface RestaurantProps {
+    address: string,
+    canceled_at: string,
+    created_at: string
+    email: string,
+    has_service_tax: boolean,
+    id: number,
+    phone: string,
+    username: string
+}
+
 export interface LoginDataProps {
-    restaurant: {
-        address: string,
-        canceled_at: string,
-        created_at: string
-        email: string,
-        has_service_tax: boolean,
-        id: number,
-        phone: string,
-        username: string
-    },
+    restaurant: RestaurantProps,
     token: string
 }
 
@@ -25,6 +27,12 @@ export interface ProductDataProps {
 export interface OrderArgProps {
     amount: number,
     product_id: number,
-    phone: string,
-    name: string
+    name: string,
+    value: number
 };
+
+export interface CreateOrderArgProps extends OrderArgProps {
+    total_price: number,
+    total_service_price: number,
+    buyer_id: number,
+}

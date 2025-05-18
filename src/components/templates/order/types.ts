@@ -1,5 +1,7 @@
-
+import { CreateOrderArgProps } from "../../../core/api-query-objects/types";
 
 export interface OrderTemplateProps {
-    onNavigateUser: () => void,
+    orderSummary: CreateOrderArgProps,
+    onFetch: () => void,
+    tax: boolean
 }

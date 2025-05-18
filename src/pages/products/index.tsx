@@ -1,5 +1,6 @@
+import { OrderArgProps } from "../../core/api-query-objects/types";
 import { ProductsTemplate } from "../../components/templates";
-import { useApi } from "../../core/contexts/order";
+import { useApi } from "../../core/contexts/api";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -7,6 +8,7 @@ import pagination from "../../core/pagination";
 
 const ProductsPage = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
+    const { order, products, handleSelectProduct } = useApi();
     const navigate = useNavigate();
 
     const handleRedirectOrder = () => {
@@ -21,13 +23,22 @@ const ProductsPage = () => {
         setIsDrawerOpen(false);
     }
 
-    const { products } = useApi();
-    console.log(products);
+    const onSelectProduct = (args: OrderArgProps) => {
+        handleSelectProduct(args);
+        handleOpenDrawer();
+    }
+
+    if (!products) {
+        return;
+    }
 
     return <ProductsTemplate
+        order={order}
+        products={products}
         isDrawerOpen={isDrawerOpen}
         onOpenDrawer={handleOpenDrawer}
         onCloseDrawer={handleCloseDrawer}
+        onSelectProduct={onSelectProduct}
         onRedirectOrder={handleRedirectOrder}
     />
 }

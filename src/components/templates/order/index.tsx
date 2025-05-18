@@ -2,7 +2,12 @@ import { Asset, Button, Text } from "../../atoms";
 import { OrderTemplateProps } from "./types";
 import { Component } from "./styles";
 
-const Index = ({ onNavigateUser }: OrderTemplateProps) => <Component>
+import util from "../../../core/util";
+
+const Index = ({ orderSummary: {
+    total_price,
+    total_service_price,
+}, onFetch, tax }: OrderTemplateProps) => <Component>
     <body>
         <div>
             <Asset name="foodgo" width={250} />
@@ -11,10 +16,10 @@ const Index = ({ onNavigateUser }: OrderTemplateProps) => <Component>
         <header>
             <div>
                 <Text name="order-summary">Informações do cliente</Text>
-                <Button name="product-card-button">
+                {/* <Button name="product-card-button">
                     <Asset name="brownuser" width={14} height={14} />
                     <Text name="edit-user-info">editar dados do cliente</Text>
-                </Button>
+                </Button> */}
             </div>
             <section>
                 <div>
@@ -34,23 +39,23 @@ const Index = ({ onNavigateUser }: OrderTemplateProps) => <Component>
                     <div>
                         <div>
                             <Text name="order-summary-info">Pedido</Text>
-                            <Text name="order-summary-info">R$ 17,00</Text>
+                            <Text name="order-summary-info">{util.brl(total_price)}</Text>
                         </div>
-                        <div>
+                        {tax && <div>
                             <Text name="order-summary-info">Taxa de entrega</Text>
-                            <Text name="order-summary-info">R$ 1,20</Text>
-                        </div>
+                            <Text name="order-summary-info">{util.brl(total_service_price - total_price)}</Text>
+                        </div>}
                     </div>
                     <div>
                         <Text name="order-summary-total">Total</Text>
-                        <Text name="order-summary-total">R$ 18,90</Text>
+                        <Text name="order-summary-total">{util.brl(total_service_price)}</Text>
                     </div>
                 </section>
             </div>
         </main>
         <footer>
             <Text name="edit-user-info">Tempo estimado de entrega: 15min - 30min</Text>
-            <Button name='continue-order-button' onClick={onNavigateUser}>
+            <Button name='continue-order-button' onClick={onFetch}>
                 <Text name='white-order-price'>PAGAR</Text>
             </Button>
         </footer>

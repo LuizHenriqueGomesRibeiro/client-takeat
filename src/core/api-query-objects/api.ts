@@ -1,9 +1,9 @@
+import { CreateOrderArgProps, LoginDataProps, ProductDataProps } from "./types";
 import { ApiEndpoint } from "@caucolum/api-query-object";
 import { setCookie } from "nookies";
 import { set } from "idb-keyval";
 
 import routes from "../routes";
-import { LoginDataProps, OrderArgProps, ProductDataProps } from "./types";
 
 const baseURL: string = import.meta.env.VITE_BASE_URL;
 
@@ -24,6 +24,8 @@ const publicApi = {
                     path: "/",
                     maxAge: 30 * 24 * 60 * 60,
                 });
+
+                set("restaurant", loginData.restaurant);
             },
         },
         DATA_PROPS: {} as LoginDataProps,
@@ -48,7 +50,7 @@ const privateApi = {
     createOrder: {
         method: 'post',
         url: routes.orders,
-        ARGS_PROPS: {} as OrderArgProps
+        ARGS_PROPS: {} as CreateOrderArgProps
     }
 } as const satisfies Record<string, ApiEndpoint>;
 

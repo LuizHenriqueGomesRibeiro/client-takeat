@@ -2,11 +2,10 @@
 
 
 const pagination = {
-    products: '/products',
+    products: '/produtos',
     order: '/order',
     profile: '/usuario',
     login: '/login',
-    restaurants: '/restaurantes',
 }
 
 export default pagination;

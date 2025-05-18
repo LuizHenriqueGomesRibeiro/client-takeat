@@ -1,13 +1,32 @@
+import { CreateOrderArgProps } from "../../core/api-query-objects/types";
 import { OrderTemplate } from "../../components/templates";
-import { useNavigate } from "react-router-dom";
-
-import pagination from "../../core/pagination";
+import { useApi } from "../../core/contexts/api";
 
 const Index = () => {
-    const navigate = useNavigate();
+    const { order, restaurant, handleSendOrder } = useApi();
+
+    if (!order) {
+        return;
+    }
+
+    const tax = restaurant?.has_service_tax as boolean;
+
+    const total_price = order?.amount * order?.value as number;
+    const service = tax ? total_price * 0.1 : 0 as number; 
+    const total_service_price = total_price + service as number;
+
+    const orderSummary = {
+        total_price,
+        service,
+        total_service_price,
+        buyer_id: 0,
+        ...order,
+    } as CreateOrderArgProps;
 
     return <OrderTemplate
-        onNavigateUser={() => navigate(pagination.profile)}
+        onFetch={() => handleSendOrder(orderSummary)}
+        orderSummary={orderSummary}
+        tax={tax}
     />
 }
 

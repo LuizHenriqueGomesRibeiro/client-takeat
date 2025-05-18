@@ -1,5 +1,5 @@
 import { ProductsPageBody, ProductsPageHeader, ProductsPageSettings } from "./styles";
-import { Asset, Button, SearchInput, Text } from "../../atoms";
+import { Asset, SearchInput, Text } from "../../atoms";
 import { ProductsTemplateProps } from "./types";
 import { HomeBottomBar } from "../../molecules";
 import { ProductsList } from "../../organisms";
@@ -13,9 +13,12 @@ const Products = ({ ...props }: ProductsTemplateProps) => <>
             </div>
         </ProductsPageHeader>
         <ProductsPageSettings>
-            <SearchInput />
+            <SearchInput/>
         </ProductsPageSettings>
-        <ProductsList/>
+        <ProductsList 
+            products={props.products}
+            onSelectProduct={props.onSelectProduct}
+        />
     </ProductsPageBody>
     <HomeBottomBar {...props}/>
 </>

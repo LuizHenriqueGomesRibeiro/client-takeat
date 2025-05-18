@@ -1,10 +1,10 @@
+import { Asset, Button, Text } from '../../atoms';
+import { ProductCartCard } from '../../molecules';
 import { SwipeableDrawer } from '@mui/material';
 import { ShoppingCartProps } from "./types";
 import { Component } from "./styles";
-import { Asset, Button, Text } from '../../atoms';
-import { ProductCartCard } from '../../molecules';
 
-const Index = ({ isDrawerOpen, onOpenDrawer, onCloseDrawer, onRedirectOrder }: ShoppingCartProps) => <SwipeableDrawer
+const Index = ({ order, isDrawerOpen, onOpenDrawer, onCloseDrawer, onRedirectOrder }: ShoppingCartProps) => <SwipeableDrawer
     anchor="bottom"
     open={isDrawerOpen}
     onClose={onCloseDrawer}
@@ -24,7 +24,9 @@ const Index = ({ isDrawerOpen, onOpenDrawer, onCloseDrawer, onRedirectOrder }: S
             </div>
         </header>
         <main>
-            {[1,2,3,4, 2,3, 4].map(() => <ProductCartCard/>)}
+            <ProductCartCard
+                order={order}
+            />
         </main>
         <footer>
             <div>
