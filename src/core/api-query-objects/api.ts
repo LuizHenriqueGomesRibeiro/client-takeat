@@ -1,25 +1,13 @@
 import { ApiEndpoint } from "@caucolum/api-query-object";
 import { setCookie } from "nookies";
+import { set } from "idb-keyval";
 
 import routes from "../routes";
+import { LoginDataProps, OrderArgProps, ProductDataProps } from "./types";
 
 const baseURL: string = import.meta.env.VITE_BASE_URL;
 
-export interface LoginDataProps {
-    restaurant: {
-        address: string,
-        canceled_at: string,
-        created_at: string
-        email: string,
-        has_service_tax: boolean,
-        id: number,
-        phone: string,
-        username: string
-    },
-    token: string
-}
-
-const api = {
+const publicApi = {
     login: {
         url: routes.login,
         method: 'post',
@@ -46,7 +34,28 @@ const api = {
     }
 } as const satisfies Record<string, ApiEndpoint>;
 
-export default api;
+const privateApi = {
+    getProducts: {
+        method: 'get',
+        url: routes.products,
+        clientSideResources: {
+            onSuccess({ data }) {
+                set('products', data);
+            },
+        },
+        DATA_PROPS: {} as ProductDataProps[]
+    },
+    createOrder: {
+        method: 'post',
+        url: routes.orders,
+        ARGS_PROPS: {} as OrderArgProps
+    }
+} as const satisfies Record<string, ApiEndpoint>;
+
+export {
+    publicApi,
+    privateApi
+};
 export {
     baseURL
 }

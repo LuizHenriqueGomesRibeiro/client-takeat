@@ -1,4 +1,5 @@
 import { ProductsTemplate } from "../../components/templates";
+import { useApi } from "../../core/contexts/order";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
@@ -19,6 +20,9 @@ const ProductsPage = () => {
     const handleCloseDrawer = () => {
         setIsDrawerOpen(false);
     }
+
+    const { products } = useApi();
+    console.log(products);
 
     return <ProductsTemplate
         isDrawerOpen={isDrawerOpen}
