@@ -1,5 +1,5 @@
-import { ProductsPageBody, ProductsPageHeader, ProductsPageSettings } from "./styles";
-import { Asset, SearchInput, Text } from "../../atoms";
+import { ProductsPageBody, ProductsPageHeader } from "./styles";
+import { Asset, Text } from "../../atoms";
 import { ProductsTemplateProps } from "./types";
 import { HomeBottomBar } from "../../molecules";
 import { ProductsList } from "../../organisms";
@@ -12,9 +12,6 @@ const Products = ({ ...props }: ProductsTemplateProps) => <>
                 <Text name="delivery-subtitle">Peça sua comida predileta</Text>
             </div>
         </ProductsPageHeader>
-        {/* <ProductsPageSettings>
-            <SearchInput/>
-        </ProductsPageSettings> */}
         <ProductsList 
             products={props.products}
             onSelectProduct={props.onSelectProduct}

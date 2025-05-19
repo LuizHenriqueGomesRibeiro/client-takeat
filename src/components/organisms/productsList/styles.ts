@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
 export const Component = styled.div`
-    box-sizing: border-box;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 22px;
-    margin: 0 auto;
-    align-items: center;
     justify-content: center;
+    box-sizing: border-box;
+    align-items: center;
+    flex-wrap: wrap;
+    display: flex;
+    
+    margin-top: 10px;
+    margin: 0 auto;
+    gap: 22px;
 `
