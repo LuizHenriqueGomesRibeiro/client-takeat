@@ -22,12 +22,13 @@ export interface ProductDataProps {
     name: string,
     restaurant_id: number,
     value: number,
+    amount?: number,
 }[];
 
 export interface OrderArgProps {
     amount: number,
     product_id: number,
-    value: number,
-    phone: string,
+    value?: number,
+    phone?: string,
     name?: string,
 };
