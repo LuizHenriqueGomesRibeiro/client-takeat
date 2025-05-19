@@ -9,6 +9,7 @@ import pagination from "../../core/pagination";
 const ProductsPage = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
     const { order, products, handleSelectProduct } = useApi();
+    
     const navigate = useNavigate();
 
     const handleRedirectOrder = () => {
@@ -33,13 +34,13 @@ const ProductsPage = () => {
     }
 
     return <ProductsTemplate
-        order={order}
-        products={products}
-        isDrawerOpen={isDrawerOpen}
-        onOpenDrawer={handleOpenDrawer}
+        onRedirectOrder={handleRedirectOrder}
         onCloseDrawer={handleCloseDrawer}
         onSelectProduct={onSelectProduct}
-        onRedirectOrder={handleRedirectOrder}
+        onOpenDrawer={handleOpenDrawer}
+        isDrawerOpen={isDrawerOpen}
+        products={products}
+        order={order}
     />
 }
 

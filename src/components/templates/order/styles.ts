@@ -95,3 +95,21 @@ export const Component = styled.div`
         }
     }
 `
+
+export const Swipeable = styled.div`
+    flex-direction: column;
+    display: flex;
+    margin: auto;
+
+    max-width: 1000px;
+    min-width: 300px;
+    gap: 20px;
+
+    > div:last-child {
+        margin: auto;
+    }
+
+    > img {
+        margin-bottom: 20px;
+    }
+`

@@ -1,9 +1,48 @@
-import { CreateOrderArgProps } from "../../core/api-query-objects/types";
+import { CreateOrderProps } from "../../components/templates/order/types";
 import { OrderTemplate } from "../../components/templates";
 import { useApi } from "../../core/contexts/api";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { get, set } from "idb-keyval";
+import { BuyerProps } from "./types";
 
 const Index = () => {
-    const { order, restaurant, handleSendOrder } = useApi();
+    const { order, restaurant, handleSendOrder, fetchOrderError, fetchOrderStatus } = useApi();
+
+    const [ swipeable, setSwipeable ] = useState<boolean>(false);
+    const { watch, setValue, control } = useForm<BuyerProps>({
+        defaultValues: {
+            name: '',
+            phone: ''
+        }
+    });
+
+    const buyer = watch();
+
+    useEffect(() => {
+        const trigger = async () => {
+            const idbBuyer = await get('buyer') as BuyerProps;
+
+            if (idbBuyer.name !== '') {
+                setValue('name', idbBuyer.name);
+            }
+            
+            if (idbBuyer.phone !== '') {
+                setValue('phone', idbBuyer.phone);
+            }
+        }
+
+        trigger();
+    }, []);
+
+    const handleSwitchModal = (value: boolean) => {
+        setSwipeable(value);
+    }
+
+    const handleSaveBuyer = () => {
+        set('buyer', buyer);
+        handleSwitchModal(false);
+    }
 
     if (!order) {
         return;
@@ -16,16 +55,26 @@ const Index = () => {
     const total_service_price = total_price + service as number;
 
     const orderSummary = {
+        total_service_price,
         total_price,
         service,
-        total_service_price,
-        buyer_id: 0,
-        ...order,
-    } as CreateOrderArgProps;
+        name: buyer.name,
+        phone: buyer.phone,
+        amount: order.amount,
+        product_id: order.product_id,
+        value: order.value
+    } as CreateOrderProps;
 
     return <OrderTemplate
         onFetch={() => handleSendOrder(orderSummary)}
+        onSwipeable={handleSwitchModal}
+        onSaveBuyer={handleSaveBuyer}
+        fetchOrderStatus={fetchOrderStatus}
+        fetchOrderError={fetchOrderError}
         orderSummary={orderSummary}
+        swipeable={swipeable}
+        control={control}
+        buyer={buyer}
         tax={tax}
     />
 }

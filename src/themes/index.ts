@@ -7,6 +7,7 @@ const themes = {
     "orange": "#FF9633",
     "ice-white": "#F3F4F6",
     "background": "#F5F5F5",
+    "grey-background": "#808080",
     "white": "#FFFFFF"
 }
 

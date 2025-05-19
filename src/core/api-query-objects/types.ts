@@ -27,12 +27,7 @@ export interface ProductDataProps {
 export interface OrderArgProps {
     amount: number,
     product_id: number,
-    name: string,
-    value: number
+    value: number,
+    phone: string,
+    name?: string,
 };
-
-export interface CreateOrderArgProps extends OrderArgProps {
-    total_price: number,
-    total_service_price: number,
-    buyer_id: number,
-}

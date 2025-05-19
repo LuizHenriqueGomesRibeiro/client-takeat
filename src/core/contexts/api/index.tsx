@@ -1,15 +1,19 @@
-import { CreateOrderArgProps, OrderArgProps, ProductDataProps, RestaurantProps } from "../../api-query-objects/types";
+import { OrderArgProps, ProductDataProps, RestaurantProps } from "../../api-query-objects/types";
 import { createContext, useContext, ReactNode, useEffect, useState } from "react";
 import { privateClient, publicClient } from "../../api-query-objects/factory";
 import { get, set } from "idb-keyval";
 
+export type fetchOrderStatusProps = 'success' | 'error' | 'idle' | 'loading' | 'loaded';
+
 interface ApiContextType {
-  order: OrderArgProps | undefined,
-  restaurant: RestaurantProps | undefined,
-  products: ProductDataProps[] | undefined,
-  handleSendOrder: (args: CreateOrderArgProps) => void,
   handleSelectProduct: (args: OrderArgProps) => void,
   handleChangeOrderAmount: (amount: number) => void,
+  handleSendOrder: (args: OrderArgProps) => void,
+  fetchOrderStatus: fetchOrderStatusProps,
+  products: ProductDataProps[] | undefined,
+  restaurant: RestaurantProps | undefined,
+  order: OrderArgProps | undefined,
+  fetchOrderError: string,
 }
 
 const ApiContext = createContext<ApiContextType | undefined>(undefined);
@@ -20,10 +24,13 @@ export const ApiProvider = ({ children }: { children: ReactNode }) => {
   const [order, setOrder] = useState<OrderArgProps>();
   
   const { makeRequest: fetchProducts } = privateClient.getProducts();
-  const { makeRequest: fetchOrder } = privateClient.createOrder();
+  const { makeRequest: fetchOrder, error, status: fetchOrderStatus } = privateClient.createOrder();
   const { makeRequest: fetchLogin } = publicClient.login();
 
-  const handleSendOrder = (args: CreateOrderArgProps) => fetchOrder(args);
+  //@ts-ignore
+  const fetchOrderError = error && error.response.data.error;
+
+  const handleSendOrder = (args: OrderArgProps) => fetchOrder(args);
 
   const handleSelectProduct = (args: OrderArgProps) => setOrder(() => {
     set('order', args);
@@ -84,6 +91,8 @@ export const ApiProvider = ({ children }: { children: ReactNode }) => {
     order, 
     products,
     restaurant,
+    fetchOrderError,
+    fetchOrderStatus,
     handleSendOrder,
     handleSelectProduct,
     handleChangeOrderAmount

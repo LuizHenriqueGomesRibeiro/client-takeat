@@ -1,9 +1,10 @@
-import { CreateOrderArgProps, LoginDataProps, ProductDataProps } from "./types";
+import { OrderArgProps, LoginDataProps, ProductDataProps } from "./types";
 import { ApiEndpoint } from "@caucolum/api-query-object";
 import { setCookie } from "nookies";
 import { set } from "idb-keyval";
 
 import routes from "../routes";
+import pagination from "../pagination";
 
 const baseURL: string = import.meta.env.VITE_BASE_URL;
 
@@ -50,7 +51,15 @@ const privateApi = {
     createOrder: {
         method: 'post',
         url: routes.orders,
-        ARGS_PROPS: {} as CreateOrderArgProps
+        ARGS_PROPS: {} as OrderArgProps,
+        clientSideResources: {
+            onSuccess({ redirector }) {
+                redirector(pagination.success);
+            },
+            onError({ error }) {
+                console.log(error.response.data.error);
+            }
+        }
     }
 } as const satisfies Record<string, ApiEndpoint>;
 
