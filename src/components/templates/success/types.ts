@@ -4,13 +4,12 @@ import themes from "../../../themes";
 export const Component = styled.div`
     background-color: ${themes["grey-background"]};
     height: 100vh;
-
     display: flex;
 
     > div {
         background-color: ${themes.white};
         border-radius: 45px;
-        padding: 20px;
+        padding: 30px 20px 50px 20px;
         width: 600px;
         bottom: 40px;
 
@@ -19,6 +18,24 @@ export const Component = styled.div`
         position: relative;
         display: flex;
         margin: auto;
+        
+        > main {
+            flex-direction: column;
+            display: flex;
 
+            > span {
+                text-align: center;
+            }
+        }
+
+        > footer {
+            padding-top: 15px;
+            
+            > div {
+                > span {
+                    padding: 0 12px;
+                }
+            }
+        }
     }
 `

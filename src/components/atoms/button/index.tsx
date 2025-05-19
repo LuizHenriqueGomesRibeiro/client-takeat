@@ -41,19 +41,15 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode,
 }
 
-const Button = ({ name, children, ...props }: ButtonProps) => {
-
-
-    return <Component
-        width={ButtonsList[name].width}
-        height={ButtonsList[name].height}
-        radius={ButtonsList[name].radius}
-        color={ButtonsList[name].color}
-        //@ts-ignore
-        border={ButtonsList[name].border}
-        children={children}
-        {...props}
-    />
-}
+const Button = ({ name, children, ...props }: ButtonProps) => <Component
+    //@ts-ignore
+    border={ButtonsList[name].border}
+    height={ButtonsList[name].height}
+    radius={ButtonsList[name].radius}
+    color={ButtonsList[name].color}
+    width={ButtonsList[name].width}
+    children={children}
+    {...props}
+/>
 
 export default Button;

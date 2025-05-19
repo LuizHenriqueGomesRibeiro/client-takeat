@@ -74,6 +74,18 @@ export const TextList = {
         'font-size': 14,
         'font-color': themes.brown
     },
+    'success-order': {
+        'font-family': 'Roboto',
+        'font-weight': 500,
+        'font-size': 14,
+        'font-color': themes.grey
+    },
+    'success-title': {
+        'font-family': 'Poppins',
+        'font-weight': 700,
+        'font-size': 30,
+        'font-color': themes.red
+    },
 } as const;
 
 interface TextProps {
