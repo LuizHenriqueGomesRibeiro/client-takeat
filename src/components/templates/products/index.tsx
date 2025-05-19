@@ -12,15 +12,15 @@ const Products = ({ ...props }: ProductsTemplateProps) => <>
                 <Text name="delivery-subtitle">Peça sua comida predileta</Text>
             </div>
         </ProductsPageHeader>
-        <ProductsPageSettings>
+        {/* <ProductsPageSettings>
             <SearchInput/>
-        </ProductsPageSettings>
+        </ProductsPageSettings> */}
         <ProductsList 
             products={props.products}
             onSelectProduct={props.onSelectProduct}
         />
     </ProductsPageBody>
-    <HomeBottomBar {...props}/>
+    {(props.order?.value !== undefined && props.order?.amount !== undefined) && <HomeBottomBar {...props}/>}
 </>
 
 export default Products;

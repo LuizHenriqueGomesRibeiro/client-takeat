@@ -1,7 +1,7 @@
 import { OrderArgProps, LoginDataProps, ProductDataProps } from "./types";
 import { ApiEndpoint } from "@caucolum/api-query-object";
 import { setCookie } from "nookies";
-import { set } from "idb-keyval";
+import { del, set } from "idb-keyval";
 
 import routes from "../routes";
 import pagination from "../pagination";
@@ -54,6 +54,7 @@ const privateApi = {
         ARGS_PROPS: {} as OrderArgProps,
         clientSideResources: {
             onSuccess({ redirector }) {
+                del("order");
                 redirector(pagination.success);
             },
             onError({ error }) {

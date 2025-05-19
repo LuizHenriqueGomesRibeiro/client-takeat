@@ -9,7 +9,7 @@ import pagination from "../../core/pagination";
 const ProductsPage = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
     const { order, products, handleSelectProduct } = useApi();
-    
+
     const navigate = useNavigate();
 
     const handleRedirectOrder = () => {

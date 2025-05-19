@@ -23,8 +23,8 @@ export const ApiProvider = ({ children }: { children: ReactNode }) => {
   const [restaurant, setRestaurant] = useState<RestaurantProps>();
   const [order, setOrder] = useState<OrderArgProps>();
   
-  const { makeRequest: fetchProducts } = privateClient.getProducts();
   const { makeRequest: fetchOrder, error, status: fetchOrderStatus } = privateClient.createOrder();
+  const { makeRequest: fetchProducts } = privateClient.getProducts();
   const { makeRequest: fetchLogin } = publicClient.login();
 
   //@ts-ignore

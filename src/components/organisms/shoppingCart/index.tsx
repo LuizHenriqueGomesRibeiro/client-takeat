@@ -3,6 +3,7 @@ import { ProductCartCard } from '../../molecules';
 import { SwipeableDrawer } from '@mui/material';
 import { ShoppingCartProps } from "./types";
 import { Component } from "./styles";
+import util from '../../../core/util';
 
 const Index = ({ order, isDrawerOpen, onOpenDrawer, onCloseDrawer, onRedirectOrder }: ShoppingCartProps) => <SwipeableDrawer
     anchor="bottom"
@@ -24,14 +25,16 @@ const Index = ({ order, isDrawerOpen, onOpenDrawer, onCloseDrawer, onRedirectOrd
             </div>
         </header>
         <main>
-            <ProductCartCard
+            {order?.value && <ProductCartCard
                 order={order}
-            />
+            />}
         </main>
         <footer>
             <div>
                 <Text name='grey-order-price'>Total:</Text>
-                <Text name='grey-order-price'>R$ 20,50</Text>
+                <Text name='grey-order-price'>{(order?.value !== undefined && order?.amount !== undefined) && util.brl(
+                    order?.value * order?.amount
+                )}</Text>
             </div>
             <section>
                 <Button name='cancel-order-button'>
