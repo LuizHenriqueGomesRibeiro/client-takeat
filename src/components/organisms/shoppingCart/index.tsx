@@ -37,7 +37,7 @@ const Index = ({ order, isDrawerOpen, onOpenDrawer, onCloseDrawer, onRedirectOrd
                 )}</Text>
             </div>
             <section>
-                <Button name='cancel-order-button'>
+                <Button name='cancel-order-button' onClick={() => onCloseDrawer}>
                     <Text name='red-order-price'>cancelar</Text>
                 </Button>
                 <Button name='continue-order-button' onClick={onRedirectOrder}>
