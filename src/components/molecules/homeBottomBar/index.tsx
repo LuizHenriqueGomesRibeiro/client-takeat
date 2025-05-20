@@ -1,7 +1,8 @@
+import { Asset, Button, Text } from "../../atoms";
 import { ShoppingCart } from "../../organisms";
 import { HomeBottomBarProps } from "./types";
-import { Asset, Button, Text } from "../../atoms";
 import { Component } from "./styles";
+
 import util from "../../../core/util";
 
 const Index = ({ ...props }: HomeBottomBarProps) => <>
@@ -12,8 +13,10 @@ const Index = ({ ...props }: HomeBottomBarProps) => <>
                 <Text name="white-order-price">Fazer pedido</Text>
             </div>
             <div>
-                <Text name="white-order-price">{(props.order?.value !== undefined && props.order?.amount !== undefined) && util.brl(
-                    props.order?.value * props.order?.amount)}</Text>
+                <Text name="white-order-price">
+                    {(props.order?.value !== undefined && props.order?.amount !== undefined) && 
+                    util.brl(props.order?.value * props.order?.amount)}
+                </Text>
             </div>
         </Button>
         <footer>

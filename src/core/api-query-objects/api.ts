@@ -3,8 +3,8 @@ import { ApiEndpoint } from "@caucolum/api-query-object";
 import { setCookie } from "nookies";
 import { del, set } from "idb-keyval";
 
-import routes from "../routes";
 import pagination from "../pagination";
+import routes from "../routes";
 
 const baseURL: string = import.meta.env.VITE_BASE_URL;
 
@@ -55,6 +55,7 @@ const privateApi = {
         clientSideResources: {
             onSuccess({ redirector }) {
                 del("order");
+                del("buyer");
                 redirector(pagination.success);
             },
             onError({ error }) {

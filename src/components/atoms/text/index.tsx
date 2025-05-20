@@ -86,6 +86,18 @@ export const TextList = {
         'font-size': 30,
         'font-color': themes.red
     },
+    'restaurant-error': {
+        'font-family': 'Roboto',
+        'font-weight': 700,
+        'font-size': 30,
+        'font-color': themes.grey
+    },
+    'little-restaurant-error': {
+        'font-family': 'Roboto',
+        'font-weight': 700,
+        'font-size': 18,
+        'font-color': themes.grey
+    },
 } as const;
 
 interface TextProps {

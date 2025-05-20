@@ -1,7 +1,6 @@
 const pagination = {
     products: '/produtos',
-    order: '/order',
-    profile: '/usuario',
+    order: '/ordem',
     login: '/login',
     success: '/sucesso',
 }
