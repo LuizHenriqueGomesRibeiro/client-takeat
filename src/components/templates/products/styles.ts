@@ -4,7 +4,7 @@ export const ProductsPageBody = styled.div`
     padding: 10px 10px 0 10px;
     display: flex;
     flex-direction: column;
-    `
+`
 
 export const ProductsPageHeader = styled.div`
     display: flex;

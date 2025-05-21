@@ -7,7 +7,7 @@ export const Component = styled.div`
     flex-wrap: wrap;
     display: flex;
     
-    margin-top: 10px;
+    padding-top: 20px;
     margin: 0 auto;
     gap: 22px;
 `
