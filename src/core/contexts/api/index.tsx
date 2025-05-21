@@ -19,8 +19,8 @@ interface ApiContextType {
 const ApiContext = createContext<ApiContextType | undefined>(undefined);
 
 export const ApiProvider = ({ children }: { children: ReactNode }) => {
-  const [products, setProducts] = useState<ProductDataProps[]>();
   const [restaurant, setRestaurant] = useState<RestaurantProps>();
+  const [products, setProducts] = useState<ProductDataProps[]>();
   const [order, setOrder] = useState<OrderArgProps>();
   
   const { makeRequest: fetchOrder, error, status: fetchOrderStatus } = privateClient.createOrder();
