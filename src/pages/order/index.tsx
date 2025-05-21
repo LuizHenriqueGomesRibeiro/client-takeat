@@ -49,7 +49,7 @@ const Index = () => {
     }
 
     const tax = restaurant?.has_service_tax as boolean;
-
+    console.log(restaurant);
     //@ts-ignore
     const total_price = order?.amount * order?.value as number;
     const service = tax ? total_price * 0.1 : 0 as number; 

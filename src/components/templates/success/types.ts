@@ -3,8 +3,11 @@ import themes from "../../../themes";
 
 export const Component = styled.div`
     background-color: ${themes["grey-background"]};
-    height: 100vh;
+    justify-content: center;
     display: flex;
+    
+    padding: 0 15px;
+    height: 100vh;
 
     > div {
         background-color: ${themes.white};

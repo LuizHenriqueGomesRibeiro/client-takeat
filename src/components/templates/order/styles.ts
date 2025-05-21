@@ -3,22 +3,24 @@ import themes from "../../../themes";
 
 export const Component = styled.div`
     height: 100vh;
-    width: 100vw;
-    margin: auto;
     display: flex;
+    margin: auto;
+    padding: 0 10px;
+    justify-content: center;
     
     > body {
-        width: 100%;
+        padding: 0 0 80px 0;
         max-width: 1000px;
-        margin: auto;
+        width: 100%;
+        
         align-content: center;
-        padding-bottom: 80px;
 
         > div {
-            margin: auto;
-            display: flex;
             flex-direction: column;
             align-items: center;
+            display: flex;
+            margin: auto;
+
             padding-bottom: 20px;
 
             > img {
