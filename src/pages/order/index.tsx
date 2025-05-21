@@ -11,8 +11,10 @@ import pagination from "../../core/pagination";
 
 const Index = () => {
     const navigate = useNavigate();
+
     const { order, restaurant, handleSendOrder, fetchOrderError, fetchOrderStatus } = useApi();
     const [ swipeable, setSwipeable ] = useState<boolean>(false);
+    
     const { watch, setValue, control } = useForm<BuyerProps>({
         defaultValues: {
             name: '',
