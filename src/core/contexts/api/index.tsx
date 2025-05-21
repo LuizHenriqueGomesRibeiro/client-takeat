@@ -1,6 +1,6 @@
 import { OrderArgProps, ProductDataProps, RestaurantProps } from "../../api-query-objects/types";
 import { createContext, useContext, ReactNode, useEffect, useState } from "react";
-import { privateClient, publicClient } from "../../api-query-objects/factory";
+import { client } from "../../api-query-objects/factory";
 import { get, set } from "idb-keyval";
 
 export type fetchOrderStatusProps = 'success' | 'error' | 'idle' | 'loading' | 'loaded';
@@ -23,9 +23,9 @@ export const ApiProvider = ({ children }: { children: ReactNode }) => {
   const [products, setProducts] = useState<ProductDataProps[]>();
   const [order, setOrder] = useState<OrderArgProps>();
   
-  const { makeRequest: fetchOrder, error, status: fetchOrderStatus } = privateClient.createOrder();
-  const { makeRequest: fetchProducts } = privateClient.getProducts();
-  const { makeRequest: fetchLogin } = publicClient.login();
+  const { makeRequest: fetchOrder, error, status: fetchOrderStatus } = client.createOrder();
+  const { makeRequest: fetchProducts } = client.getProducts();
+  const { makeRequest: fetchLogin } = client.login();
 
   //@ts-ignore
   const fetchOrderError = error && error.response.data.error;

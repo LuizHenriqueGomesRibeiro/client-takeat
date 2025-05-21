@@ -1,15 +1,10 @@
 import { createClientNextArchitecture } from "@caucolum/api-query-object";
-import { privateApi, publicApi } from "./api";
 import { AxiosRequestConfig } from "axios";
 import { axiosInstance } from "./axios";
 import { parseCookies } from 'nookies';
+import { api } from "./api";
 
-const publicClient = createClientNextArchitecture(publicApi, (config: AxiosRequestConfig): AxiosRequestConfig => {
-
-    return config;
-}, axiosInstance);
-
-const privateClient = createClientNextArchitecture(privateApi, (config: AxiosRequestConfig): AxiosRequestConfig => {
+const client = createClientNextArchitecture(api, (config: AxiosRequestConfig): AxiosRequestConfig => {
     const { token } = parseCookies();
 
     if (token && config.headers) {
@@ -20,6 +15,5 @@ const privateClient = createClientNextArchitecture(privateApi, (config: AxiosReq
 }, axiosInstance);
 
 export {
-    publicClient,
-    privateClient
+    client,
 }

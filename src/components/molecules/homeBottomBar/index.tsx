@@ -21,9 +21,9 @@ const Index = ({ ...props }: HomeBottomBarProps) => <>
         </Button>
         <footer>
             <div>
-                <Asset name="back" width={24} height={24} />
+                {/* <Asset name="back" width={24} height={24} />
                 <Asset name="home" width={24} height={24} />
-                <Asset name="red-user" width={24} height={24} />
+                <Asset name="red-user" width={24} height={24} /> */}
             </div>
         </footer>
     </Component>

@@ -8,7 +8,7 @@ import routes from "../routes";
 
 const baseURL: string = import.meta.env.VITE_BASE_URL;
 
-const publicApi = {
+const api = {
     login: {
         url: routes.login,
         method: 'post',
@@ -34,10 +34,7 @@ const publicApi = {
             email: string, 
             password: string
         }
-    }
-} as const satisfies Record<string, ApiEndpoint>;
-
-const privateApi = {
+    },
     getProducts: {
         method: 'get',
         url: routes.products,
@@ -66,8 +63,7 @@ const privateApi = {
 } as const satisfies Record<string, ApiEndpoint>;
 
 export {
-    publicApi,
-    privateApi
+    api,
 };
 export {
     baseURL
